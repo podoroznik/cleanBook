@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+        <variable
+            name="book"
+            type="com.example.readbook.domain.model.Book" />
+        <variable
+            name="clickListener"
+            type="com.example.readbook.presentation.mainFragment.BookListener" />
+
+    </data>
+
+    
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:onClick="@{() -> clickListener.onClick(book)}">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        tools:text="@string/asdasd"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/black"
+        android:textSize="40sp"
+        android:textStyle="italic"
+        app:BookName="@{book}"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

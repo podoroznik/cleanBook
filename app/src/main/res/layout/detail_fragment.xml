@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.readbook.presentation.detail.DetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.detail.DetailFragment">
+
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/author"
+                    style="@style/newstyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.currentBook.bookAuthor}"
+                    tools:layout_editor_absoluteX="48dp"
+                    tools:layout_editor_absoluteY="40dp"
+                    tools:text="А.С Пушкин" />
+
+                <TextView
+                    android:id="@+id/bookName"
+                    style="@style/newstyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.currentBook.bookName}"
+                    tools:layout_editor_absoluteX="48dp"
+                    tools:text="Евгений Онегин" />
+
+                <TextView
+                    android:id="@+id/bookType"
+                    style="@style/newstyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.currentBook.bookType}"
+                    tools:layout_editor_absoluteX="48dp"
+                    tools:text="Роман" />
+
+                <TextView
+                    android:id="@+id/bookYears"
+                    style="@style/newstyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.currentBook.bookYears}"
+                    tools:layout_editor_absoluteX="48dp"
+                    tools:text="1999-2000" />
+
+                <TextView
+                    android:id="@+id/bookPlace"
+                    style="@style/newstyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.currentBook.bookPlace}"
+                    tools:layout_editor_absoluteX="48dp"
+                    tools:text="Санкт Петербург" />
+
+                <TextView
+                    android:id="@+id/bookChars"
+                    style="@style/newstyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.currentBook.bookMainCharacters}"
+                    tools:layout_editor_absoluteX="48dp"
+                    tools:text="Евгений Онегин, Ленский" />
+
+                <TextView
+                    android:id="@+id/BookStory"
+                    style="@style/newstyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.currentBook.bookStory}"
+                    tools:text="Молодой человек ведёт разгульный образ жизни, до того как приезжает в дервеню к деду" />
+
+                <TextView
+                    android:id="@+id/bookMeaning"
+                    style="@style/newstyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.currentBook.bookMeaning}"
+                    tools:layout_editor_absoluteX="48dp"
+                    tools:text="Смысла нету" />
+
+                <TextView
+                    android:id="@+id/bookRate"
+                    style="@style/newstyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.currentBook.bookRate}"
+                    tools:layout_editor_absoluteX="48dp"
+                    tools:layout_editor_absoluteY="137dp"
+                    tools:text="Хорошая" />
+
+                <TextView
+                    android:id="@+id/aforismi"
+                    style="@style/newstyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.currentBook.bookAforismi}"
+                    tools:layout_editor_absoluteX="48dp"
+                    tools:text="Авторские афоризмы" />
+
+                <TextView
+                    android:id="@+id/unknown_words"
+                    style="@style/newstyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.currentBook.bookUnknownWords}"
+                    tools:layout_editor_absoluteX="48dp"
+                    tools:text="Незнакомые слова" />
+
+                <TextView
+                    android:id="@+id/new_words"
+                    style="@style/newstyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.currentBook.bookNewWords}"
+                    tools:layout_editor_absoluteX="48dp"
+                    tools:text="Новые слова" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="40dp"
+            android:text="@string/delete"
+            android:onClick="@{() -> viewModel.onClick()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/shareButton"
+            android:onClick="@{() -> viewModel.onShareClicked()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="40dp"
+            android:text="@string/send"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

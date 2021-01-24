@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.readbook.presentation.createFragment.CreateViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:context=".presentation.createFragment.CreateFragment">
+
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/linear_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:orientation="vertical">
+
+
+                <EditText
+                    android:id="@+id/authorName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:hint="@string/authormane"
+                    android:inputType="textPersonName"
+                    tools:layout_editor_absoluteX="114dp"
+                    tools:layout_editor_absoluteY="16dp" />
+
+                <EditText
+                    android:id="@+id/bookName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:hint="@string/bookname"
+                    android:inputType="textPersonName"
+                    style="@style/mystyle"
+                    tools:layout_editor_absoluteX="100dp"
+                    tools:layout_editor_absoluteY="100dp" />
+
+                <EditText
+                    android:id="@+id/bookType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:hint="@string/type"
+                    android:inputType="textPersonName"
+                    style="@style/mystyle"
+                    tools:layout_editor_absoluteX="85dp"
+                    tools:layout_editor_absoluteY="160dp" />
+
+                <EditText
+                    android:id="@+id/book_year"
+                    style="@style/mystyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:hint="@string/year"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/place"
+                    style="@style/mystyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:hint="@string/place"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/main_chars"
+                    style="@style/mystyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:hint="@string/chars"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/bookStory"
+                    style="@style/mystyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:hint="@string/story"
+                    android:inputType="textMultiLine"
+                    tools:layout_editor_absoluteX="218dp"
+                    tools:layout_editor_absoluteY="236dp" />
+
+                <EditText
+                    android:id="@+id/book_meaning"
+                    style="@style/mystyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:hint="@string/meaning"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/bookRate"
+                    style="@style/mystyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:hint="@string/rate"
+                    android:inputType="textPersonName"
+                    tools:layout_editor_absoluteX="77dp"
+                    tools:layout_editor_absoluteY="301dp" />
+
+                <EditText
+                    android:id="@+id/book_aforismi"
+                    style="@style/mystyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:hint="@string/aforismi"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/unknown_words"
+                    style="@style/mystyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:hint="@string/unknown_words"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/new_words"
+                    style="@style/mystyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:hint="@string/new_words"
+                    android:inputType="textPersonName" />
+
+                <Button
+                    android:id="@+id/save_button"
+                    style="@style/mystyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/save"
+                    tools:layout_editor_absoluteX="231dp"
+                    tools:layout_editor_absoluteY="576dp" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

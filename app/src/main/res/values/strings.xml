@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">readbook</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="button">Button</string>
+    <string name="bookname">Название книги</string>
+    <string name="authormane">Имя автора</string>
+    <string name="type">Жанр</string>
+    <string name="rate">Оценка</string>
+    <string name="story">Сюжет</string>
+    <string name="plus">+</string>
+    <string name="asdasd">asdasd</string>
+    <string name="delete">Удалить</string>
+    <string name="save">Сохранить</string>
+    <string name="send">Отправить</string>
+    <string name="year">Год написания</string>
+    <string name="place">Место действия</string>
+    <string name="chars">Главные персонажи</string>
+    <string name="meaning">Смысл произведения</string>
+    <string name="aforismi">Авторские афоризмы</string>
+    <string name="unknown_words">Незнакомые слова</string>
+    <string name="new_words">Новые слова</string>
+    <string name="confirm">Подтвердить удаление?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="full_all_fields">Заполните все поля</string>
+</resources>
