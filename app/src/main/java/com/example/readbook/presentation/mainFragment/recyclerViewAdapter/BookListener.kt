@@ -1,4 +1,4 @@
-package com.example.readbook.presentation.mainFragment
+package com.example.readbook.presentation.mainFragment.recyclerViewAdapter
 
 import com.example.readbook.domain.model.Book
 

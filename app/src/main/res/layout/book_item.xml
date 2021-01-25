@@ -10,7 +10,7 @@
             type="com.example.readbook.domain.model.Book" />
         <variable
             name="clickListener"
-            type="com.example.readbook.presentation.mainFragment.BookListener" />
+            type="com.example.readbook.presentation.mainFragment.recyclerViewAdapter.BookListener" />
 
     </data>
 

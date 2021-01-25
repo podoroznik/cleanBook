@@ -15,6 +15,8 @@ import com.example.readbook.R
 import com.example.readbook.databinding.MainFragmentBinding
 import com.example.readbook.di.components.DaggerMainFragmentComponent
 import com.example.readbook.domain.usecase.GetAllBooksUseCase
+import com.example.readbook.presentation.mainFragment.recyclerViewAdapter.BookAdapter
+import com.example.readbook.presentation.mainFragment.recyclerViewAdapter.BookListener
 import javax.inject.Inject
 
 
@@ -56,9 +58,11 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val adapter = BookAdapter(BookListener { book ->
-            viewModel.onBookClicked(book)
-        })
+        val adapter =
+            BookAdapter(
+                BookListener { book ->
+                    viewModel.onBookClicked(book)
+                })
 
         binding.viewModel = viewModel
 

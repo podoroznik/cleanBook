@@ -1,4 +1,4 @@
-package com.example.readbook.presentation.mainFragment
+package com.example.readbook.presentation.mainFragment.recyclerViewAdapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,9 +8,13 @@ import com.example.readbook.domain.model.Book
 import com.example.readbook.databinding.BookItemBinding
 
 class BookAdapter(val clickListener: BookListener) :
-    ListAdapter<Book, BookAdapter.ViewHolder>(BookDiffCallback()) {
+    ListAdapter<Book, BookAdapter.ViewHolder>(
+        BookDiffCallback()
+    ) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder.from(parent)
+        return ViewHolder.from(
+            parent
+        )
     }
 
 
@@ -31,7 +35,9 @@ class BookAdapter(val clickListener: BookListener) :
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = BookItemBinding.inflate(layoutInflater, parent, false)
-                return ViewHolder(binding)
+                return ViewHolder(
+                    binding
+                )
             }
         }
     }
