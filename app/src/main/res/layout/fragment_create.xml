@@ -19,7 +19,7 @@
             android:id="@+id/scrollView"
             android:layout_width="400dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -46,25 +46,25 @@
 
                 <EditText
                     android:id="@+id/bookName"
+                    style="@style/mystyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:autofillHints=""
                     android:ems="10"
                     android:hint="@string/bookname"
                     android:inputType="textPersonName"
-                    style="@style/mystyle"
                     tools:layout_editor_absoluteX="100dp"
                     tools:layout_editor_absoluteY="100dp" />
 
                 <EditText
                     android:id="@+id/bookType"
+                    style="@style/mystyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:autofillHints=""
                     android:ems="10"
                     android:hint="@string/type"
                     android:inputType="textPersonName"
-                    style="@style/mystyle"
                     tools:layout_editor_absoluteX="85dp"
                     tools:layout_editor_absoluteY="160dp" />
 
@@ -163,17 +163,21 @@
                     android:hint="@string/new_words"
                     android:inputType="textPersonName" />
 
-                <Button
-                    android:id="@+id/save_button"
-                    style="@style/mystyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/save"
-                    tools:layout_editor_absoluteX="231dp"
-                    tools:layout_editor_absoluteY="576dp" />
-
             </LinearLayout>
         </ScrollView>
+
+        <ImageView
+            android:id="@+id/save_button"
+            style="@style/mystyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="30dp"
+            android:contentDescription="@string/save"
+            android:text="@string/save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/group_1__3_" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

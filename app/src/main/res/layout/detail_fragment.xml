@@ -140,7 +140,7 @@
             </LinearLayout>
         </ScrollView>
 
-        <Button
+        <ImageView
             android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -149,9 +149,11 @@
             android:text="@string/delete"
             android:onClick="@{() -> viewModel.onClick()}"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:srcCompat="@drawable/group_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/delete" />
 
-        <Button
+        <ImageView
             android:id="@+id/shareButton"
             android:onClick="@{() -> viewModel.onShareClicked()}"
             android:layout_width="wrap_content"
@@ -159,8 +161,10 @@
             android:layout_marginTop="40dp"
             android:layout_marginEnd="40dp"
             android:text="@string/send"
+            app:srcCompat="@drawable/group_3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/share" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
