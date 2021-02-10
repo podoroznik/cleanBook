@@ -18,6 +18,7 @@ import com.example.readbook.presentation.MainActivity
 import com.example.readbook.presentation.mainFragment.recyclerViewAdapter.BookAdapter
 import com.example.readbook.presentation.mainFragment.recyclerViewAdapter.BookListener
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
@@ -35,6 +36,8 @@ class MainFragment : Fragment() {
     lateinit var viewModel: MainViewModel
 
     lateinit var binding: MainFragmentBinding
+
+    private val disposeBag = CompositeDisposable()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -79,10 +82,10 @@ class MainFragment : Fragment() {
         })
 
 
-        viewModel.books.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        disposeBag.add(viewModel.books.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 adapter.submitList(it)
-            }, {})
+            }, {}))
         viewModel.navigateToDetail.observe(viewLifecycleOwner, Observer {
             it?.let {
                 if (viewModel.validateDestination(navController.currentDestination?.id)) {
@@ -93,5 +96,10 @@ class MainFragment : Fragment() {
 
         val manager = LinearLayoutManager(context)
         binding.bookList.layoutManager = manager
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        disposeBag.dispose()
     }
 }

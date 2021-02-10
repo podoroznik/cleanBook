@@ -17,6 +17,7 @@ import com.example.readbook.di.modules.DetailFragmentModule
 import com.example.readbook.domain.usecase.GetBookByIdUseCase
 import com.example.readbook.presentation.MainActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
@@ -35,6 +36,7 @@ class DetailFragment : Fragment() {
     lateinit var viewModel: DetailViewModel
     lateinit var binding: DetailFragmentBinding
 
+    private val disposeBag = CompositeDisposable()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -68,35 +70,38 @@ class DetailFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         binding.viewModel = viewModel
-        viewModel.currentBook.subscribeOn(Schedulers.io())
+        disposeBag.add(viewModel.currentBook.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ binding.book = it }, {})
+        )
 
 
         viewModel.onShareClicked.observe(viewLifecycleOwner, Observer {
             if (it == true) {
-                viewModel.currentBook.subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({
-                        val book = it
-                        val intent = Intent(Intent.ACTION_SEND)
-                        intent.type = "text/plain"
-                        intent.putExtra(
-                            Intent.EXTRA_TEXT, "Автор:${book.bookAuthor}\n" +
-                                    "Название книги: ${book.bookName}\n" +
-                                    "Жанр: ${book.bookType}\n" +
-                                    "Год написания: ${book.bookYears}\n" +
-                                    "Место действия: ${book.bookPlace}\n" +
-                                    "Главные персонажи: ${book.bookMainCharacters}\n" +
-                                    "Фабула: ${book.bookStory}\n" +
-                                    "Смысл: ${book.bookMeaning}\n" +
-                                    "Оценка: ${book.bookRate}\n" +
-                                    "Авторские афоризмы: ${book.bookAforismi}\n" +
-                                    "Незнакомые слова: ${book.bookUnknownWords}\n" +
-                                    "Новые слова: ${book.bookNewWords}\n"
-                        )
-                        startActivity(intent)
-                    }, {})
+                disposeBag.add(
+                    viewModel.currentBook.subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({
+                            val book = it
+                            val intent = Intent(Intent.ACTION_SEND)
+                            intent.type = "text/plain"
+                            intent.putExtra(
+                                Intent.EXTRA_TEXT, "Автор:${book.bookAuthor}\n" +
+                                        "Название книги: ${book.bookName}\n" +
+                                        "Жанр: ${book.bookType}\n" +
+                                        "Год написания: ${book.bookYears}\n" +
+                                        "Место действия: ${book.bookPlace}\n" +
+                                        "Главные персонажи: ${book.bookMainCharacters}\n" +
+                                        "Фабула: ${book.bookStory}\n" +
+                                        "Смысл: ${book.bookMeaning}\n" +
+                                        "Оценка: ${book.bookRate}\n" +
+                                        "Авторские афоризмы: ${book.bookAforismi}\n" +
+                                        "Незнакомые слова: ${book.bookUnknownWords}\n" +
+                                        "Новые слова: ${book.bookNewWords}\n"
+                            )
+                            startActivity(intent)
+                        }, {})
+                )
             }
         })
 
@@ -111,5 +116,10 @@ class DetailFragment : Fragment() {
             }
         })
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        disposeBag.dispose()
     }
 }

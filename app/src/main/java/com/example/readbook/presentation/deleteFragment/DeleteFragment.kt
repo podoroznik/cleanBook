@@ -12,6 +12,7 @@ import com.example.readbook.presentation.MainActivity
 import com.example.readbook.R
 import com.example.readbook.databinding.FragmentDeleteBinding
 import com.example.readbook.di.components.DaggerDeleteFragmentComponent
+import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
 
@@ -70,4 +71,5 @@ class DeleteFragment : Fragment() {
         }
 
     }
+
 }
