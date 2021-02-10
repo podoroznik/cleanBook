@@ -6,6 +6,9 @@
         <variable
             name="viewModel"
             type="com.example.readbook.presentation.detail.DetailViewModel" />
+        <variable
+            name="book"
+            type="com.example.readbook.domain.model.Book" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -33,7 +36,7 @@
                     style="@style/newstyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.currentBook.bookAuthor}"
+                    android:text="@{book.bookAuthor}"
                     tools:layout_editor_absoluteX="48dp"
                     tools:layout_editor_absoluteY="40dp"
                     tools:text="А.С Пушкин" />
@@ -43,7 +46,7 @@
                     style="@style/newstyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.currentBook.bookName}"
+                    android:text="@{book.bookName}"
                     tools:layout_editor_absoluteX="48dp"
                     tools:text="Евгений Онегин" />
 
@@ -52,7 +55,7 @@
                     style="@style/newstyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.currentBook.bookType}"
+                    android:text="@{book.bookType}"
                     tools:layout_editor_absoluteX="48dp"
                     tools:text="Роман" />
 
@@ -61,7 +64,7 @@
                     style="@style/newstyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.currentBook.bookYears}"
+                    android:text="@{book.bookYears}"
                     tools:layout_editor_absoluteX="48dp"
                     tools:text="1999-2000" />
 
@@ -70,7 +73,7 @@
                     style="@style/newstyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.currentBook.bookPlace}"
+                    android:text="@{book.bookPlace}"
                     tools:layout_editor_absoluteX="48dp"
                     tools:text="Санкт Петербург" />
 
@@ -79,7 +82,7 @@
                     style="@style/newstyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.currentBook.bookMainCharacters}"
+                    android:text="@{book.bookMainCharacters}"
                     tools:layout_editor_absoluteX="48dp"
                     tools:text="Евгений Онегин, Ленский" />
 
@@ -88,7 +91,7 @@
                     style="@style/newstyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.currentBook.bookStory}"
+                    android:text="@{book.bookStory}"
                     tools:text="Молодой человек ведёт разгульный образ жизни, до того как приезжает в дервеню к деду" />
 
                 <TextView
@@ -96,7 +99,7 @@
                     style="@style/newstyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.currentBook.bookMeaning}"
+                    android:text="@{book.bookMeaning}"
                     tools:layout_editor_absoluteX="48dp"
                     tools:text="Смысла нету" />
 
@@ -105,7 +108,7 @@
                     style="@style/newstyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.currentBook.bookRate}"
+                    android:text="@{book.bookRate}"
                     tools:layout_editor_absoluteX="48dp"
                     tools:layout_editor_absoluteY="137dp"
                     tools:text="Хорошая" />
@@ -115,7 +118,7 @@
                     style="@style/newstyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.currentBook.bookAforismi}"
+                    android:text="@{book.bookAforismi}"
                     tools:layout_editor_absoluteX="48dp"
                     tools:text="Авторские афоризмы" />
 
@@ -124,7 +127,7 @@
                     style="@style/newstyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.currentBook.bookUnknownWords}"
+                    android:text="@{book.bookUnknownWords}"
                     tools:layout_editor_absoluteX="48dp"
                     tools:text="Незнакомые слова" />
 
@@ -133,7 +136,7 @@
                     style="@style/newstyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.currentBook.bookNewWords}"
+                    android:text="@{book.bookNewWords}"
                     tools:layout_editor_absoluteX="48dp"
                     tools:text="Новые слова" />
 

@@ -1,15 +1,16 @@
 package com.example.readbook.domain.repository
 
-import androidx.lifecycle.LiveData
 import com.example.readbook.domain.model.Book
+import io.reactivex.Flowable
+import io.reactivex.Single
 
 interface BookRepository {
 
-    fun getBookById(id : Long) : LiveData<Book>
+    fun getBookById(id: Long): Single<Book>
 
-    suspend fun deleteBookById(id : Long)
+    fun deleteBookById(id: Long)
 
-    suspend fun saveBook(book: Book)
+    fun saveBook(book: Book)
 
-    fun getAllBooks(): LiveData<List<Book>>
+    fun getAllBooks(): Single<List<Book>>
 }

@@ -10,13 +10,15 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.readbook.presentation.MainActivity
 import com.example.readbook.R
 import com.example.readbook.databinding.MainFragmentBinding
 import com.example.readbook.di.components.DaggerMainFragmentComponent
 import com.example.readbook.domain.usecase.GetAllBooksUseCase
+import com.example.readbook.presentation.MainActivity
 import com.example.readbook.presentation.mainFragment.recyclerViewAdapter.BookAdapter
 import com.example.readbook.presentation.mainFragment.recyclerViewAdapter.BookListener
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 
@@ -30,9 +32,9 @@ class MainFragment : Fragment() {
     @Inject
     lateinit var getAllBooksUseCase: GetAllBooksUseCase
 
-    lateinit var viewModel : MainViewModel
+    lateinit var viewModel: MainViewModel
 
-    lateinit var binding : MainFragmentBinding
+    lateinit var binding: MainFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -77,9 +79,10 @@ class MainFragment : Fragment() {
         })
 
 
-        viewModel.books.observe(viewLifecycleOwner, Observer {
-            adapter.submitList(it)
-        })
+        viewModel.books.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                adapter.submitList(it)
+            }, {})
         viewModel.navigateToDetail.observe(viewLifecycleOwner, Observer {
             it?.let {
                 if (viewModel.validateDestination(navController.currentDestination?.id)) {

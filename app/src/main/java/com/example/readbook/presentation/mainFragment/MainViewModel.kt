@@ -8,17 +8,16 @@ import androidx.navigation.Navigation
 import com.example.readbook.R
 import com.example.readbook.domain.model.Book
 import com.example.readbook.domain.usecase.GetAllBooksUseCase
+import io.reactivex.Single
 
 
-class MainViewModel(val getAllBooksUseCase: GetAllBooksUseCase, val activity: Activity) : ViewModel() {
+class MainViewModel(val getAllBooksUseCase: GetAllBooksUseCase, val activity: Activity) :
+    ViewModel() {
 
     private val _navigateToDetail = MutableLiveData<Long>()
-    val books : LiveData<List<Book>>  = getAllBooksUseCase.getAllBooks()
+    val books: Single<List<Book>> = getAllBooksUseCase.getAllBooks()
     val navigateToDetail: LiveData<Long>
         get() = _navigateToDetail
-
-
-
 
 
     private val _navigateToCreate = MutableLiveData<Boolean>()

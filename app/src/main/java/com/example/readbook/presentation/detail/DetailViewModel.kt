@@ -16,13 +16,12 @@ class DetailViewModel(val getBookByIdUseCase: GetBookByIdUseCase, val id: Long, 
     val navigateToDelete: LiveData<Boolean>
         get() = _navigateToDelete
 
+    val currentBook = getBookByIdUseCase.getBook(id)
 
     private val _onShareClicked = MutableLiveData<Boolean>()
 
     val onShareClicked: LiveData<Boolean>
         get() = _onShareClicked
-
-    val currentBook = getBookByIdUseCase.getBook(id)
 
 
     fun onClick() {
